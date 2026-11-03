@@ -1,1 +1,1 @@
-Modify from master
+Merge conflict Resolving using Terminal
