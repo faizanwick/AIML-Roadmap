@@ -1,1 +1,1 @@
-Creating a pull request (PR)
+Merge conflict Resolving using Terminal
