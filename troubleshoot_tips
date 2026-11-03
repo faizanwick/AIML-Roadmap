@@ -1,0 +1,14 @@
+HASH = commit ID
+################
+
+git cherry-pick HASH
+# Apply a specific commit
+
+git checkout HASH
+# Temp inspect commit
+
+git reset --hard HASH
+# Move your branch to a specific commit (This can discard work after that commit)
+
+git revert HASH..HEAD
+# Safely undo commits
