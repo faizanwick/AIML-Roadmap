@@ -1,1 +1,1 @@
-Creating conflict file
+Modifying the conflict file
