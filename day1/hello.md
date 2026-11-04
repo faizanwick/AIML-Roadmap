@@ -11,3 +11,6 @@ git commit # Save stage changes
 git log # History of all commits in your repo
 
 .gitignore # Ignore unwanted files
+
+testing
+testing 2.0
