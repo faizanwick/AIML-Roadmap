@@ -1,4 +1,0 @@
-@
-#
-tc
-hello world

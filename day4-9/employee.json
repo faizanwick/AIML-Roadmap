@@ -1,0 +1,20 @@
+[
+    {
+        "Name" : "Patrick Jane",
+        "Age" : 40,
+        "Designation" : "Consultant",
+        "Salary" : 50000
+    },
+    {
+        "Name" : "Teressa Lisbon",
+        "Age" : 35,
+        "Designation" : "CBI Agent",
+        "Salary" : 40000
+    },
+    {
+        "Name" : "Kimbal Cho",
+        "Age" : 35,
+        "Designation" : "CBI Agent",
+        "Salary" : 30000
+    }
+]

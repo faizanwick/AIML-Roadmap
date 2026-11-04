@@ -1,0 +1,23 @@
+[
+    {
+        "Name":"Patrick Jane",
+        "Age":40,
+        "Designation":"Consultant",
+        "Salary":50000,
+        "Annual Salary":600000.0
+    },
+    {
+        "Name":"Teressa Lisbon",
+        "Age":35,
+        "Designation":"CBI Agent",
+        "Salary":40000,
+        "Annual Salary":480000.0
+    },
+    {
+        "Name":"Kimbal Cho",
+        "Age":35,
+        "Designation":"CBI Agent",
+        "Salary":30000,
+        "Annual Salary":null
+    }
+]
