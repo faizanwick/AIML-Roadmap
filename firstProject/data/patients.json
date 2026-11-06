@@ -1,0 +1,132 @@
+{
+    "2": {
+        "name": "Kimbal Cho",
+        "city": "CA",
+        "age": 32,
+        "gender": "male",
+        "height": 160.0,
+        "weight": 52.0,
+        "bmi": 0.0,
+        "verdict": "Underweight"
+    },
+    "3": {
+        "name": "Arjun Mehta",
+        "city": "Mumbai",
+        "age": 45,
+        "gender": "Male",
+        "height": 175,
+        "weight": 95,
+        "bmi": 31.02,
+        "verdict": "Obese"
+    },
+    "4": {
+        "name": "Sneha Patel",
+        "city": "Ahmedabad",
+        "age": 28,
+        "gender": "Female",
+        "height": 165,
+        "weight": 68,
+        "bmi": 24.98,
+        "verdict": "Normal"
+    },
+    "5": {
+        "name": "Vikram Singh",
+        "city": "Delhi",
+        "age": 38,
+        "gender": "Male",
+        "height": 180,
+        "weight": 60,
+        "bmi": 18.52,
+        "verdict": "Underweight"
+    },
+    "6": {
+        "name": "Ananya Das",
+        "city": "Kolkata",
+        "age": 22,
+        "gender": "Female",
+        "height": 155,
+        "weight": 75,
+        "bmi": 31.22,
+        "verdict": "Obese"
+    },
+    "7": {
+        "name": "Karthik Nair",
+        "city": "Chennai",
+        "age": 50,
+        "gender": "Male",
+        "height": 168,
+        "weight": 72,
+        "bmi": 25.51,
+        "verdict": "Overweight"
+    },
+    "8": {
+        "name": "Meera Joshi",
+        "city": "Pune",
+        "age": 35,
+        "gender": "Female",
+        "height": 170,
+        "weight": 58,
+        "bmi": 20.07,
+        "verdict": "Normal"
+    },
+    "9": {
+        "name": "Aditya Verma",
+        "city": "Jaipur",
+        "age": 29,
+        "gender": "Male",
+        "height": 165,
+        "weight": 48,
+        "bmi": 17.63,
+        "verdict": "Underweight"
+    },
+    "10": {
+        "name": "Pooja Iyer",
+        "city": "Kochi",
+        "age": 41,
+        "gender": "Female",
+        "height": 162,
+        "weight": 85,
+        "bmi": 32.39,
+        "verdict": "Obese"
+    },
+    "11": {
+        "name": "faizan",
+        "city": "hyd",
+        "age": 22,
+        "gender": "male",
+        "height": 150.0,
+        "weight": 70.0,
+        "bmi": 0.01,
+        "verdict": "Underweight"
+    },
+    "12": {
+        "name": "hamza",
+        "city": "hyd",
+        "age": 22,
+        "gender": "male",
+        "height": 120.0,
+        "weight": 75.0,
+        "bmi": 0.01,
+        "verdict": "Underweight"
+    },
+    "13": {
+        "name": "Patrick Jane",
+        "city": "CA",
+        "age": 40,
+        "gender": "male",
+        "height": 150.0,
+        "weight": 60.0,
+        "bmi": 0.0,
+        "verdict": "Underweight"
+    },
+    "14": {
+        "name": "Teressa Lisbon",
+        "city": "CA",
+        "age": 38,
+        "gender": "female",
+        "height": 130.0,
+        "weight": 50.0,
+        "bmi": 0.0,
+        "verdict": "Underweight"
+    }
+}
