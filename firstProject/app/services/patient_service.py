@@ -53,8 +53,9 @@ class PatientService:
         return patient
 
     # Delete patient
-    def delete_patient(self, patient_id : str) -> PatientResponse:
+    def delete_patient(self, patient_id : str):
         if self.repository.get_by_id(patient_id) is None:
             raise PatientNotFoundError()
 
-        self.repository.delete(patient_id)    
+        self.repository.delete(patient_id)
+        return {"message" : "Patient Deleted"}
