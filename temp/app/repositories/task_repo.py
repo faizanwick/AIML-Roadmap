@@ -58,3 +58,7 @@ class TaskRepository:
         self.db.commit()
         
         return True
+
+    def get_all_user_task(self, user_id : int):
+        statement = select(Task).where(Task.user_id == user_id)
+        return self.db.scalars(statement).all()

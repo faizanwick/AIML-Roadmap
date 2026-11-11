@@ -24,7 +24,7 @@ def get_user(db : Session = Depends(get_db)):
 def get_all_tasks(service : TaskService = Depends(get_task_service)):
     return service.get_all()
 
-@router.get("/{task_id}", response_model=TaskResponse)
+@router.get("/task/{task_id}", response_model=TaskResponse)
 def get_task(task_id : int, service : TaskService = Depends(get_task_service)):
     return service.get_task(task_id)
 
@@ -43,3 +43,11 @@ def modify_task(task_id : int, task : TaskUpdate, service : TaskService = Depend
 @router.delete("/{task_id}")
 def delete_task(task_id : int, service : TaskService = Depends(get_task_service)):
     return service.delete_task(task_id)
+
+
+# Get tasks using User Dependencies
+from app.api.v1.endpoints.auth import get_current_user
+
+@router.get("/users_tasks", response_model=list[TaskResponse])
+def get_tasks(curr_user : User = Depends(get_current_user), service : TaskService = Depends(get_task_service)):
+    return service.get_user_tasks(user_id=curr_user.user_id)

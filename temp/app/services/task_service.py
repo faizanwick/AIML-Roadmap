@@ -44,3 +44,8 @@ class TaskService:
         if not deleted:
             raise HTTPException(status_code=404, detail="Task Not Found")
         return {"message" : "Task Deleted"}
+
+    def get_user_tasks(self, user_id : int):
+        tasks = self.repository.get_all_user_task(user_id)
+        # return [TaskResponse.model_validate(task) for task in tasks]
+        return [task for task in tasks]
