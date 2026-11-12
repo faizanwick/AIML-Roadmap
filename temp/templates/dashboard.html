@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TaskFlow Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js"></script>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+</head>
+<body data-template-id="__page-root" class="page-dashboard w-full" style="background: rgb(248, 249, 251);">
+  <div class="shell">
+   <aside data-template-id="sidebar" class="sidebar canva-sidebar" style="background: rgb(32, 35, 45);">
+    <div class="brand">
+     <span class="brand-mark" aria-hidden="true"><i data-lucide="check-check"></i></span><strong data-template-id="brand-name" class="canva-text" style="color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 20px;">TaskFlow</strong>
+    </div>
+    <nav aria-label="Main navigation">
+     <div class="side-current" aria-current="page">
+      <i data-lucide="layout-dashboard" aria-hidden="true"></i><span data-template-id="nav-dashboard" class="canva-text" style="color: rgb(255, 255, 255); font-weight: 400; font-style: normal; font-size: 15px;">Dashboard</span>
+     </div>
+    </nav>
+   </aside>
+   <div class="workspace">
+    <header class="topbar"><strong data-template-id="topbar-title" class="canva-text" style="color: rgb(32, 35, 45); font-weight: 700; font-style: normal; font-size: 15px;">Dashboard</strong>
+      <span id="user_id" class="bold-text muted"></span>
+    </header>
+    <main class="content">
+     <div class="mb-7">
+      <h1 data-template-id="welcome-title" class="canva-text font-bold" style="color: rgb(32, 35, 45); font-weight: 700; font-style: normal; font-size: 30px;">Your workspace</h1>
+      <p data-template-id="welcome-subtitle" class="canva-text muted mt-2" style="color: rgb(119, 128, 141); font-weight: 400; font-style: normal; font-size: 15px;">Everything you need to manage tasks, all in one place.</p>
+     </div>
+     <div class="grid sm:grid-cols-3 gap-4 mb-8">
+      <article class="card p-5">
+       <p data-template-id="stat-total-label" class="canva-text muted" style="color: rgb(119, 128, 141); font-weight: 400; font-style: normal; font-size: 15px;">Total Tasks</p><strong id="total-count" class="block text-3xl mt-2">—</strong>
+      </article>
+      <article class="card p-5">
+       <p data-template-id="stat-completed-label" class="canva-text muted" style="color: rgb(119, 128, 141); font-weight: 400; font-style: normal; font-size: 15px;">Completed Tasks</p><strong id="completed-count" class="block text-3xl mt-2">—</strong>
+      </article>
+      <article class="card p-5">
+       <p data-template-id="stat-pending-label" class="canva-text muted" style="color: rgb(119, 128, 141); font-weight: 400; font-style: normal; font-size: 15px;">Pending Tasks</p><strong id="pending-count" class="block text-3xl mt-2">—</strong>
+      </article>
+     </div>
+     <section class="card" aria-labelledby="workspace-heading">
+      <div class="px-6 pt-6">
+       <h2 id="workspace-heading" data-template-id="workspace-title" class="canva-text font-bold" style="color: rgb(32, 35, 45); font-weight: 700; font-style: normal; font-size: 23px;">Task management</h2>
+      </div>
+      <div role="tablist" aria-label="Task management" class="tabs mt-3"><button id="tab-create" role="tab" aria-controls="panel-create" aria-selected="true" tabindex="0" data-tab="create" data-template-id="tab-create-label" class="canva-tabs tab" style="font-weight: 600; font-style: normal; font-size: 15px;">Create task</button> <button id="tab-update" role="tab" aria-controls="panel-update" aria-selected="false" tabindex="-1" data-tab="update" data-template-id="tab-update-label" class="canva-tabs tab" style="font-weight: 600; font-style: normal; font-size: 15px;">Update task</button> <button id="tab-patch" role="tab" aria-controls="panel-patch" aria-selected="false" tabindex="-1" data-tab="patch" data-template-id="tab-patch-label" class="canva-tabs tab" style="font-weight: 600; font-style: normal; font-size: 15px;">Patch task</button> <button id="tab-delete" role="tab" aria-controls="panel-delete" aria-selected="false" tabindex="-1" data-tab="delete" data-template-id="tab-delete-label" class="canva-tabs tab" style="font-weight: 600; font-style: normal; font-size: 15px;">Delete task</button> <button id="tab-specific" role="tab" aria-controls="panel-specific" aria-selected="false" tabindex="-1" data-tab="specific" data-template-id="tab-specific-label" class="canva-tabs tab" style="font-weight: 600; font-style: normal; font-size: 15px;">View specific task</button> <button id="tab-all" role="tab" aria-controls="panel-all" aria-selected="false" tabindex="-1" data-tab="all" data-template-id="tab-all-label" class="canva-tabs tab" style="font-weight: 600; font-style: normal; font-size: 15px;">View all tasks</button>
+      </div><datalist id="task-ids"></datalist>
+      <section id="panel-create" role="tabpanel" aria-labelledby="tab-create" class="panel">
+       <h3 data-template-id="create-heading" class="canva-text font-bold mb-2" style="color: rgb(32, 35, 45); font-weight: 700; font-style: normal; font-size: 18px;">Create a task</h3>
+       <p id="create-state" class="notice" role="status" aria-live="polite"></p>
+       <form id="create-form" class="form-grid max-w-3xl">
+        <div class="wide">
+         <label for="create-title" data-template-id="create-title-label" class="canva-text field-label" style="color: rgb(32, 35, 45); font-weight: 600; font-style: normal; font-size: 15px;">Title</label><input id="create-title" name="title" class="field" required="" maxlength="200">
+        </div>
+        <div class="wide">
+         <label for="create-description" data-template-id="create-description-label" class="canva-text field-label" style="color: rgb(32, 35, 45); font-weight: 600; font-style: normal; font-size: 15px;">Description</label><textarea id="create-description" name="description" class="field" rows="3"></textarea>
+        </div>
+        <div>
+         <label for="create-priority" data-template-id="create-priority-label" class="canva-text field-label" style="color: rgb(32, 35, 45); font-weight: 600; font-style: normal; font-size: 15px;">Priority</label><select id="create-priority" name="priority" class="field"><option value="low">Low</option><option value="medium" selected="">Medium</option><option value="high">High</option></select>
+        </div>
+        <div>
+         <label for="create-status" data-template-id="create-status-label" class="canva-text field-label" style="color: rgb(32, 35, 45); font-weight: 600; font-style: normal; font-size: 15px;">Status</label><select id="create-status" name="status" class="field"><option value="active">Active</option><option value="pending" selected="">Pending</option><option value="completed">Completed</option></select>
+        </div>
+        <div>
+         <label for="create-due" data-template-id="create-due-label" class="canva-text field-label" style="color: rgb(32, 35, 45); font-weight: 600; font-style: normal; font-size: 15px;">Due date</label><input id="create-due" name="due_date" type="date" class="field">
+        </div>
+        <div>
+         <label for="create-user" data-template-id="create-user-label" class="canva-text field-label" style="color: rgb(32, 35, 45); font-weight: 600; font-style: normal; font-size: 15px;">User ID</label><input id="create-user" name="user_id" type="number" min="1" step="1" class="field" required="">
+        </div>
+        <div class="wide">
+         <button type="submit" data-template-id="create-submit" class="canva-button primary" style="background: rgb(85, 88, 184); color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 15px;">Create task</button>
+        </div>
+       </form>
+      </section>
+      <section id="panel-update" role="tabpanel" aria-labelledby="tab-update" class="panel" hidden="">
+       <h3 data-template-id="update-heading" class="canva-text font-bold mb-2" style="color: rgb(32, 35, 45); font-weight: 700; font-style: normal; font-size: 18px;">Update a task</h3>
+       <p id="update-state" class="notice" role="status" aria-live="polite"></p>
+       <form id="update-load-form" class="flex flex-wrap items-end gap-3 mb-6">
+        <div class="flex-1 min-w-[180px] max-w-sm">
+         <label for="update-id" data-template-id="update-id-label" class="canva-text field-label" style="color: rgb(32, 35, 45); font-weight: 600; font-style: normal; font-size: 15px;">Task ID</label><input id="update-id" class="field" list="task-ids" required="">
+        </div><button type="submit" data-template-id="update-load" class="canva-button quiet" style="background: rgb(255, 255, 255); color: rgb(32, 35, 45); font-weight: 600; font-style: normal; font-size: 15px;">Load task</button>
+       </form>
+       <form id="update-form" class="form-grid max-w-3xl" hidden="">
+        <div class="wide">
+         <label for="update-title" data-template-id="update-title-label" class="canva-text field-label" style="color: rgb(32, 35, 45); font-weight: 600; font-style: normal; font-size: 15px;">Title</label><input id="update-title" name="title" class="field" required="" maxlength="200">
+        </div>
+        <div class="wide">
+         <label for="update-description" data-template-id="update-description-label" class="canva-text field-label" style="color: rgb(32, 35, 45); font-weight: 600; font-style: normal; font-size: 15px;">Description</label><textarea id="update-description" name="description" class="field" rows="3"></textarea>
+        </div>
+        <div>
+         <label for="update-priority" data-template-id="update-priority-label" class="canva-text field-label" style="color: rgb(32, 35, 45); font-weight: 600; font-style: normal; font-size: 15px;">Priority</label><select id="update-priority" name="priority" class="field"><option value="low">Low</option><option value="medium">Medium</option><option value="high">High</option></select>
+        </div>
+        <div>
+         <label for="update-status" data-template-id="update-status-label" class="canva-text field-label" style="color: rgb(32, 35, 45); font-weight: 600; font-style: normal; font-size: 15px;">Status</label><select id="update-status" name="status" class="field"><option value="active">Active</option><option value="pending">Pending</option><option value="completed">Completed</option></select>
+        </div>
+        <div>
+         <label for="update-due" data-template-id="update-due-label" class="canva-text field-label" style="color: rgb(32, 35, 45); font-weight: 600; font-style: normal; font-size: 15px;">Due date</label><input id="update-due" name="due_date" type="date" class="field">
+        </div>
+        <div>
+         <label for="update-user" data-template-id="update-user-label" class="canva-text field-label" style="color: rgb(32, 35, 45); font-weight: 600; font-style: normal; font-size: 15px;">User ID</label><input id="update-user" name="user_id" type="number" min="1" step="1" class="field" required="">
+        </div>
+        <div class="wide">
+         <button type="submit" data-template-id="update-submit" class="canva-button primary" style="background: rgb(85, 88, 184); color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 15px;">Save changes</button>
+        </div>
+       </form>
+      </section>
+      <section id="panel-patch" role="tabpanel" aria-labelledby="tab-patch" class="panel" hidden="">
+       <h3 data-template-id="patch-heading" class="canva-text font-bold mb-2" style="color: rgb(32, 35, 45); font-weight: 700; font-style: normal; font-size: 18px;">Patch a task</h3>
+       <p data-template-id="patch-hint" class="canva-text muted mb-4" style="color: rgb(119, 128, 141); font-weight: 400; font-style: normal; font-size: 15px;">Check only the fields you want to change. Unchecked fields are not sent.</p>
+       <p id="patch-state" class="notice" role="status" aria-live="polite"></p>
+       <form id="patch-form" class="max-w-3xl space-y-4">
+        <div>
+         <label for="patch-id" data-template-id="patch-id-label" class="canva-text field-label" style="color: rgb(32, 35, 45); font-weight: 600; font-style: normal; font-size: 15px;">Task ID</label><input id="patch-id" class="field" list="task-ids" required="">
+        </div>
+        <div class="patch-line">
+         <input id="patch-title-check" type="checkbox" data-field="title"><label for="patch-title-check" data-template-id="patch-title-label" class="canva-text font-semibold" style="color: rgb(32, 35, 45); font-weight: 600; font-style: normal; font-size: 15px;">Title</label><input id="patch-title" name="title" class="field" aria-label="New title" maxlength="200" disabled="">
+        </div>
+        <div class="patch-line">
+         <input id="patch-description-check" type="checkbox" data-field="description"><label for="patch-description-check" data-template-id="patch-description-label" class="canva-text font-semibold" style="color: rgb(32, 35, 45); font-weight: 600; font-style: normal; font-size: 15px;">Description</label><textarea id="patch-description" name="description" class="field" aria-label="New description" rows="2" disabled=""></textarea>
+        </div>
+        <div class="patch-line">
+         <input id="patch-priority-check" type="checkbox" data-field="priority"><label for="patch-priority-check" data-template-id="patch-priority-label" class="canva-text font-semibold" style="color: rgb(32, 35, 45); font-weight: 600; font-style: normal; font-size: 15px;">Priority</label><select id="patch-priority" name="priority" class="field" aria-label="New priority" disabled=""><option value="low">Low</option><option value="medium">Medium</option><option value="high">High</option></select>
+        </div>
+        <div class="patch-line">
+         <input id="patch-status-check" type="checkbox" data-field="status"><label for="patch-status-check" data-template-id="patch-status-label" class="canva-text font-semibold" style="color: rgb(32, 35, 45); font-weight: 600; font-style: normal; font-size: 15px;">Status</label><select id="patch-status" name="status" class="field" aria-label="New status" disabled=""><option value="active">Active</option><option value="pending">Pending</option><option value="completed">Completed</option></select>
+        </div>
+        <div class="patch-line">
+         <input id="patch-due-check" type="checkbox" data-field="due_date"><label for="patch-due-check" data-template-id="patch-due-label" class="canva-text font-semibold" style="color: rgb(32, 35, 45); font-weight: 600; font-style: normal; font-size: 15px;">Due date</label><input id="patch-due" name="due_date" type="date" class="field" aria-label="New due date" disabled="">
+        </div>
+        <div class="patch-line">
+         <input id="patch-user-check" type="checkbox" data-field="user_id"><label for="patch-user-check" data-template-id="patch-user-label" class="canva-text font-semibold" style="color: rgb(32, 35, 45); font-weight: 600; font-style: normal; font-size: 15px;">User ID</label><input id="patch-user" name="user_id" type="number" min="1" step="1" class="field" aria-label="New user ID" disabled="">
+        </div><button type="submit" data-template-id="patch-submit" class="canva-button primary" style="background: rgb(85, 88, 184); color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 15px;">Apply patch</button>
+       </form>
+      </section>
+      <section id="panel-delete" role="tabpanel" aria-labelledby="tab-delete" class="panel" hidden="">
+       <h3 data-template-id="delete-heading" class="canva-text font-bold mb-2" style="color: rgb(32, 35, 45); font-weight: 700; font-style: normal; font-size: 18px;">Delete a task</h3>
+       <p id="delete-state" class="notice" role="status" aria-live="polite"></p>
+       <form id="delete-load-form" class="flex flex-wrap items-end gap-3 mb-5">
+        <div class="flex-1 min-w-[180px] max-w-sm">
+         <label for="delete-id" data-template-id="delete-id-label" class="canva-text field-label" style="color: rgb(32, 35, 45); font-weight: 600; font-style: normal; font-size: 15px;">Task ID</label><input id="delete-id" class="field" list="task-ids" required="">
+        </div><button type="submit" data-template-id="delete-load" class="canva-button quiet" style="background: rgb(255, 255, 255); color: rgb(32, 35, 45); font-weight: 600; font-style: normal; font-size: 15px;">Review task</button>
+       </form>
+       <div id="delete-preview" class="mb-5" hidden=""></div>
+       <div id="delete-confirmation" class="danger-box max-w-xl" hidden="">
+        <p data-template-id="delete-warning" class="canva-text mb-4" style="color: rgb(161, 45, 53); font-weight: 400; font-style: normal; font-size: 15px;">This action cannot be undone. Confirm that this is the task you want to delete.</p>
+        <div class="flex flex-wrap gap-2"><button id="delete-confirm" type="button" data-template-id="delete-submit" class="canva-button primary" style="background: rgb(85, 88, 184); color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 15px;">Confirm delete</button> <button id="delete-cancel" type="button" data-template-id="delete-cancel" class="canva-button quiet" style="background: rgb(255, 255, 255); color: rgb(32, 35, 45); font-weight: 600; font-style: normal; font-size: 15px;">Cancel</button>
+        </div>
+       </div>
+      </section>
+      <section id="panel-specific" role="tabpanel" aria-labelledby="tab-specific" class="panel" hidden="">
+       <h3 data-template-id="specific-heading" class="canva-text font-bold mb-2" style="color: rgb(32, 35, 45); font-weight: 700; font-style: normal; font-size: 18px;">View a specific task</h3>
+       <p id="specific-state" class="notice" role="status" aria-live="polite"></p>
+       <form id="specific-form" class="flex flex-wrap items-end gap-3 mb-5">
+        <div class="flex-1 min-w-[180px] max-w-sm">
+         <label for="specific-id" data-template-id="specific-id-label" class="canva-text field-label" style="color: rgb(32, 35, 45); font-weight: 600; font-style: normal; font-size: 15px;">Task ID</label><input id="specific-id" class="field" list="task-ids" required="">
+        </div><button type="submit" data-template-id="specific-load" class="canva-button primary" style="background: rgb(85, 88, 184); color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 15px;">View task</button>
+       </form>
+       <dl id="specific-details" class="detail-grid max-w-3xl"></dl>
+      </section>
+      <section id="panel-all" role="tabpanel" aria-labelledby="tab-all" class="panel" hidden="">
+       <div class="flex flex-wrap justify-between items-center gap-3 mb-3">
+        <h3 data-template-id="all-heading" class="canva-text font-bold" style="color: rgb(32, 35, 45); font-weight: 700; font-style: normal; font-size: 18px;">All tasks</h3><button id="refresh-tasks" type="button" data-template-id="all-refresh" class="canva-button quiet" style="background: rgb(255, 255, 255); color: rgb(32, 35, 45); font-weight: 600; font-style: normal; font-size: 15px;">Refresh list</button>
+       </div>
+       <p id="all-state" class="notice" role="status" aria-live="polite"></p>
+       <div class="grid sm:grid-cols-3 gap-3 mb-5">
+        <div>
+         <label for="search" data-template-id="search-label" class="canva-text field-label" style="color: rgb(32, 35, 45); font-weight: 600; font-style: normal; font-size: 15px;">Search</label><input id="search" type="search" class="field" placeholder="Search tasks">
+        </div>
+        <div>
+         <label for="status-filter" data-template-id="filter-label" class="canva-text field-label" style="color: rgb(32, 35, 45); font-weight: 600; font-style: normal; font-size: 15px;">Status</label><select id="status-filter" class="field"><option value="all">All statuses</option><option value="active">Active</option><option value="pending">Pending</option><option value="completed">Completed</option></select>
+        </div>
+        <div>
+         <label for="sort" data-template-id="sort-label" class="canva-text field-label" style="color: rgb(32, 35, 45); font-weight: 600; font-style: normal; font-size: 15px;">Sort by</label><select id="sort" class="field"><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="title">Title A–Z</option></select>
+        </div>
+       </div>
+       <div id="task-list" class="card overflow-hidden"></div>
+      </section>
+     </section>
+    </main>
+   </div>
+  </div>
+
+  <script src="../js/scripts.js"></script>
+</body>
+</html>

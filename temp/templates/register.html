@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TaskFlow — Register</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Fraunces:opsz,wght@9..144,600&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+</head>
+<body class="page-auth page-index w-full">
+  <div class="app-shell w-full">
+    <header class="w-full border-b border-[#e8e9ed] bg-white/80">
+      <div class="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-5 sm:px-10">
+        <a href="/" class="brand-link" aria-label="TaskFlow home">
+          <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-[#4f46a5] text-white" aria-hidden="true">
+            <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3.5" y="3.5" width="17" height="17" rx="4"></rect><path d="m8 12 2.6 2.6L16 9"></path>
+            </svg>
+          </span>
+          <span class="font-bold tracking-tight" style="font-size:21px;">TaskFlow</span>
+        </a>
+        <a href="/login" class="text-sm font-semibold" style="color:#4f46a5;">Sign in</a>
+      </div>
+    </header>
+    <main class="auth-main">
+      <section class="auth-card soft-shadow" aria-labelledby="register-title">
+        <p class="mb-4 inline-flex rounded-full border border-[#dedcf3] bg-[#f6f5fc] px-4 py-2 font-semibold" style="color:#4f46a5; font-size:13px;">Get started</p>
+        <h1 id="register-title">Create your account</h1>
+        <p class="auth-lead">A name, email, and password are all you need.</p>
+        <p id="auth-state" class="notice" role="status" aria-live="polite"></p>
+        <form id="register-form" class="auth-form">
+          <div>
+            <label class="field-label" for="register-name">Name</label>
+            <input id="register-name" class="field" type="text" name="name" autocomplete="name" required>
+          </div>
+          <div>
+            <label class="field-label" for="register-email">Email</label>
+            <input id="register-email" class="field" type="email" name="email" autocomplete="email" required>
+          </div>
+          <div>
+            <label class="field-label" for="register-password">Password</label>
+            <input id="register-password" class="field" type="password" name="password" autocomplete="new-password" minlength="8" required>
+          </div>
+          <div>
+            <label class="field-label" for="register-confirm">Confirm password</label>
+            <input id="register-confirm" class="field" type="password" name="confirm" autocomplete="new-password" minlength="8" required>
+          </div>
+          <button class="auth-submit primary-action" type="submit">Register</button>
+        </form>
+        <p class="auth-switch">Already have an account? <a href="/login">Login</a></p>
+      </section>
+    </main>
+  </div>
+  <script src="../js/scripts.js"></script>
+</body>
+</html>
